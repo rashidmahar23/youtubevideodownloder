@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Video Downloader - Fast, Free & Easy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download YouTube videos in high quality with this free, fast, and easy-to-use YouTube Video Downloader. No registration. Works on all devices.">
+  <meta name="keywords" content="YouTube, video downloader, download YouTube, save YouTube video, free, fast, online, HD, MP4">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Favicon for branding -->
+  <link rel="icon" href="https://www.youtube.com/s/desktop/8a9b4a18/img/favicon.ico">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="YouTube Video Downloader - Fast, Free & Easy">
+  <meta property="og:description" content="Download YouTube videos easily online. No registration. Supports HD video and MP4 formats.">
+  <meta property="og:image" content="https://i.imgur.com/8Km9tLL.png">
+  <meta property="og:type" content="website">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YouTube Video Downloader - Fast, Free & Easy">
+  <meta name="twitter:description" content="Download YouTube videos in seconds. No account needed. Fully responsive and easy to use.">
+  <meta name="twitter:image" content="https://i.imgur.com/8Km9tLL.png">
+  <style>
+    body { background: #f8fafc; }
+    .yt-thumb {
+      background: repeating-linear-gradient(45deg,#eee 0 10px,#fff 10px 20px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <header class="bg-red-600 text-white py-6 shadow-lg">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <span class="font-bold text-xl flex items-center gap-2">
+        <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M21.8 7.8A2.8 2.8 0 0020 6.2C18.1 6 12 6 12 6s-6.1 0-8 .2A2.8 2.8 0 002.2 7.8 29.3 29.3 0 002 12a29.3 29.3 0 00.2 4.2A2.8 2.8 0 004 17.8C5.9 18 12 18 12 18s6.1 0 8-.2a2.8 2.8 0 001.8-1.6A29.3 29.3 0 0022 12a29.3 29.3 0 00-.2-4.2zM9.75 15V9l6 3-6 3z"/></svg>
+        YouTube Video Downloader
+      </span>
+      <nav class="hidden md:flex gap-6">
+        <a href="#how" class="hover:underline">How It Works</a>
+        <a href="#features" class="hover:underline">Features</a>
+        <a href="#faq" class="hover:underline">FAQ</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-1">
+    <section class="py-12">
+      <div class="container mx-auto px-4 max-w-xl text-center">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4">Download YouTube Videos Instantly</h1>
+        <p class="mb-8 text-lg text-gray-600">Paste your YouTube video link below and download it in seconds. 100% free, no registration, no watermark!</p>
+        <form id="yt-form" class="flex flex-col sm:flex-row gap-4 items-stretch justify-center">
+          <input id="yt-url" type="url" required pattern="https?://(www\.)?youtube\.com/watch\?v=.{11,}|https?://youtu\.be/.{11,}" 
+                 class="flex-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400" 
+                 placeholder="Paste YouTube video URL here...">
+          <button type="submit" class="bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-md font-semibold">
+            Get Video
+          </button>
+        </form>
+        <div id="error" class="text-red-600 mt-4 hidden"></div>
+        <div id="video-info" class="mt-8 hidden bg-white rounded-lg shadow-lg p-6 text-left">
+          <div class="flex flex-col sm:flex-row gap-6 items-center">
+            <img id="thumb" class="w-48 h-28 rounded-md yt-thumb object-cover" src="" alt="Video thumbnail">
+            <div>
+              <h2 id="title" class="text-xl font-semibold mb-2"></h2>
+              <div id="meta" class="text-gray-500 text-sm mb-4"></div>
+              <a id="download" href="#" target="_blank"
+                 class="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded font-bold transition">
+                Download MP4
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="how" class="py-14 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-3xl text-center">
+        <h2 class="text-2xl font-bold mb-4">How It Works</h2>
+        <div class="grid gap-6 md:grid-cols-3 text-gray-700">
+          <div>
+            <div class="text-4xl mb-2">1️⃣</div>
+            <p>Paste the YouTube video URL in the box above.</p>
+          </div>
+          <div>
+            <div class="text-4xl mb-2">2️⃣</div>
+            <p>Click <span class="font-semibold">Get Video</span> to fetch the video details.</p>
+          </div>
+          <div>
+            <div class="text-4xl mb-2">3️⃣</div>
+            <p>Click <span class="font-semibold">Download MP4</span> to save the video to your device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="features" class="py-14">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="text-2xl font-bold mb-4">Features</h2>
+        <ul class="grid gap-4 md:grid-cols-3 text-gray-700">
+          <li class="bg-white rounded shadow p-6">
+            <span class="text-green-500 text-3xl">✔️</span><br>
+            <span class="font-semibold">No Registration</span>
+            <div>No sign-up or fees required. 100% free.</div>
+          </li>
+          <li class="bg-white rounded shadow p-6">
+            <span class="text-green-500 text-3xl">📱</span><br>
+            <span class="font-semibold">Works on All Devices</span>
+            <div>Fully responsive and mobile-friendly UI.</div>
+          </li>
+          <li class="bg-white rounded shadow p-6">
+            <span class="text-green-500 text-3xl">⚡</span><br>
+            <span class="font-semibold">Fast & Secure</span>
+            <div>Instant video fetching and safe download links.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="faq" class="py-14 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h2 class="text-2xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
+        <div class="mb-4">
+          <b>Is this YouTube downloader free?</b>
+          <p>Yes, this tool is 100% free and always will be.</p>
+        </div>
+        <div class="mb-4">
+          <b>Do I need to install anything?</b>
+          <p>No, all you need is a web browser. No app, no extension.</p>
+        </div>
+        <div class="mb-4">
+          <b>Can I use this on mobile?</b>
+          <p>Absolutely! The design is fully responsive and works on all devices.</p>
+        </div>
+        <div class="mb-4">
+          <b>Is it legal to download YouTube videos?</b>
+          <p>Downloading content may violate YouTube's Terms of Service. Only download videos you have permission for.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="py-6 bg-gray-900 text-white text-center text-sm">
+    &copy; 2025 YouTube Video Downloader. Not affiliated with YouTube.
+  </footer>
+  <script>
+    // Helper: Extract YouTube video ID from URL
+    function extractVideoID(url) {
+      try {
+        const ytRegex = /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/;
+        const match = url.match(ytRegex);
+        return match ? match[1] : null;
+      } catch {
+        return null;
+      }
+    }
+
+    // UI Elements
+    const form = document.getElementById('yt-form');
+    const urlInput = document.getElementById('yt-url');
+    const errorDiv = document.getElementById('error');
+    const videoInfo = document.getElementById('video-info');
+    const thumbImg = document.getElementById('thumb');
+    const titleEl = document.getElementById('title');
+    const metaEl = document.getElementById('meta');
+    const downloadBtn = document.getElementById('download');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorDiv.classList.add('hidden');
+      videoInfo.classList.add('hidden');
+      const url = urlInput.value.trim();
+      const vid = extractVideoID(url);
+
+      if (!vid) {
+        errorDiv.textContent = "Please enter a valid YouTube video URL.";
+        errorDiv.classList.remove('hidden');
+        return;
+      }
+
+      // Fetch video info (title, thumbnail) from no-auth public API
+      try {
+        // Using no-key oEmbed for title/thumbnail
+        const oembedUrl = `https://www.youtube.com/oembed?url=https://youtu.be/${vid}&format=json`;
+        const res = await fetch(oembedUrl);
+        if (!res.ok) throw new Error('Video not found');
+        const data = await res.json();
+
+        // Fill UI
+        thumbImg.src = `https://img.youtube.com/vi/${vid}/hqdefault.jpg`;
+        thumbImg.alt = data.title;
+        titleEl.textContent = data.title;
+        metaEl.innerHTML = `<span>By ${data.author_name}</span>`;
+        // You can change this download link to your backend or another downloader
+        downloadBtn.href = `https://ytdl-web.vercel.app/api/info?url=https://youtu.be/${vid}`;
+        downloadBtn.setAttribute('download', '');
+        videoInfo.classList.remove('hidden');
+      } catch (err) {
+        errorDiv.textContent = "Could not fetch video info. Please check the link or try a different video.";
+        errorDiv.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
